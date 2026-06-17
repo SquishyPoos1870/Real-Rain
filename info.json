@@ -1,0 +1,15 @@
+{
+  "name": "real-rain",
+  "version": "1.2.7",
+  "title": "Real Rain",
+  "author": "Squishy1870",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "base >= 2.0.0",
+    "? space-age",
+    "! dynamic-rain",
+    "! nauvis_rain",
+    "! sen-weather"
+  ],
+  "description": "AAA-style rain ambience for Nauvis: staged storms, rain-only mode, thunder+rain mode, full thunderstorm mode, layered rain sheets, bolt-free blue-white lightning flashes linked to thunder, cinematic thunder layering, wind gusts, tile-aware splashes, post-rain visuals, dry-weather audio guard, wet-weather solar reduction, pollution washout, fire extinguishing, debug commands, and safe sound volume clamping."
+}

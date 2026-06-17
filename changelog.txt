@@ -1,0 +1,110 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.2.7
+Date: 2026-06-16
+  Bugfixes:
+    - Fixed phantom rain audio playing while the weather was still clear.
+    - Rain ambience now only plays while the weather state is actually wet/raining.
+    - Removed the post-rain rain-loop sound so clear weather no longer sounds like active rain.
+  Changes:
+    - Kept post-rain splash/ripple visuals, but muted the temporary drip ambience until proper non-rain drip assets are added.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.2.6
+Date: 2026-06-15
+  Features:
+    - Added forced weather combo commands: rain only, thunder + rain, and full thunderstorm.
+    - Added /rrrain [seconds] for rain without thunder or lightning.
+    - Added /rrthunderrain [seconds] for rain with thunder sounds but no lightning flash.
+    - Added /rrstorm [seconds] and /rrthunderstorm [seconds] for a full thunderstorm with rain, lightning flashes, and linked thunder.
+    - Added remote.call("real-rain", "force_weather_combo", surface_index, mode, seconds) for scripted integrations.
+  Changes:
+    - /real-rain rain [seconds] now means rain-only testing, while /real-rain thunderstorm [seconds] is the full lightning + thunder storm test.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2026-06-15
+  Changes:
+    - Reverted lightning away from the full-screen white overlay style.
+    - Removed the visible lightning bolt sprite; lightning now uses the original short blue-white light flash only.
+    - Linked forced lightning commands to thunder so /rrlightning close and /rrlightning far now play matching thunder.
+    - Natural visible lightning now always schedules matching thunder with close/far delay timing.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 2026-06-15
+  Bugfixes:
+    - Fixed a crash caused by thunder sound volume_modifier values going above Factorio's valid 0..1 range.
+    - Clamped rain, wind, post-rain, and thunder command sound volumes defensively.
+  Changes:
+    - Close and monsoon thunder remain loud, but are now safely capped for Factorio 2.0.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2026-06-15
+  Bugfixes:
+    - Made thunder and lightning test commands immediate instead of feeling delayed or easy to miss.
+    - Added safer short aliases: /rr, /rrthunder, /rrlightning, /rrstrike, and /rrtest.
+    - Extended forced lightning visibility so command testing is obvious in-game.
+  Changes:
+    - Expanded thunder variation pools by using the legacy thunder files as extra variation alongside the Mixkit thunder pass.
+    - Added /real-rain thunder-test to play far, close, rolling, and monsoon thunder in sequence.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2026-06-15
+  Features:
+    - Added /real-rain lightning [far|close] for visual-only lightning tests, plus /real-rain lighting as a typo-friendly alias.
+    - Added /real-rain strike [far|close|monsoon] for full lightning + thunder strike tests.
+    - Expanded /real-rain thunder to support far, close, roll, and monsoon thunder layers.
+    - Added remote interface helpers force_lightning and force_strike for scripted integrations.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2026-06-15
+  Features:
+    - Added a dedicated cinematic thunder sound pass.
+    - Added close thunder cracks, distant rumbles, delayed rolling tails, and monsoon impact layers.
+    - Added /real-rain thunder debug command.
+    - Added runtime setting for layered thunder tails.
+  Changes:
+    - Reworked thunder sound prototypes into separate far, close, roll, and monsoon categories.
+    - Added CREDITS.md with thunder source and Mixkit license notes.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2026-06-15
+  Features:
+    - Added staged storm cycle: drizzle, rain, heavy rain, storm, and rare monsoon events.
+    - Added post-rain puddle/ripple tail so rain fades out instead of stopping instantly.
+    - Added tile-aware splash logic: concrete/factory floors splash harder, grass/dirt softer, water ripples differently.
+    - Added area-aware rain ambience for forests, factory floors, and water-adjacent areas.
+    - Added wind gust ambience during stronger visible gusts.
+    - Added visible lightning bolt sprite for close strikes.
+    - Added performance modes: Cinematic, Balanced, and UPS Saver.
+    - Added admin/debug commands: /real-rain and /rrain.
+    - Added remote interface helpers for stage, describe, force_stage, and force_clear.
+  Changes:
+    - Weather intensity now follows the current storm stage instead of using a single wet intensity value.
+    - Splash density now scales with storm stage and performance mode.
+    - Rain sound is now position-aware when players are present on a surface.
+    - v1.0 splash prototypes and spawners are retained as compatibility aliases.
+  Notes:
+    - Use /real-rain storm 300 or /real-rain monsoon 300 in-game to test the new high-intensity stages quickly.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-06-15
+  Features:
+    - Rebuilt as Real Rain, a standalone AAA-style rain ambience mod.
+    - Added layered front/mid/mist rainfall visuals.
+    - Added wind gust rain angles for a stronger storm feel.
+    - Added subtle ground splash/ripple FX.
+    - Added cinematic lightning flashes with close/far thunder scheduling.
+    - Added runtime presets: Subtle, Balanced, Storm, and Monsoon.
+    - Added rain-based solar reduction, pollution washout, and fire extinguishing.
+  Changes:
+    - Renamed runtime settings, prototypes, sounds, and remote interface to real-rain names.
+    - Default weather timing now produces more noticeable gameplay rain events.
+    - Default behaviour is Nauvis-only to avoid raining on unrelated Space Age surfaces.
+  Compatibility:
+    - Conflicts with dynamic-rain, nauvis_rain, and sen-weather to avoid duplicate weather systems.
+---------------------------------------------------------------------------------------------------
